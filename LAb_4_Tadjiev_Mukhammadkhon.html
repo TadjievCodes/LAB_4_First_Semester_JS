@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<!-- 
+    Name: Tadjiev Mukhammadkhon
+    Student: 0971040
+    Date:	13	February 2020
+    Purpose: LAB 4 Numbers conversion into Celcius and Fahrenheit
+ -->
+<head>
+    <title>Lab 4</title>
+    <style>
+        body {
+            background-color: tomato;
+            color: black;
+            text-align: center;
+        }
+        
+        .tempStyle {
+            font-size: 48px;
+            font-weight: bolder;
+            padding: 5px;
+            color: darkblue;
+            background-color: peachpuff;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Temperature Converter</h1>
+
+    <!-- Output -->
+    <p class="tempStyle" id="pTemperature">
+        [Temperature Here]
+    </p>
+
+    <!-- User Input -->
+    <div>
+        Enter Temperature:
+        <br><br>
+
+        <!-- Textbox -->
+        <input type="number" id="tbInput" placeholder="74" />
+        <br><br>
+
+        <!-- Buttons -->
+        <input type="button" value="Convert To Fahrenheit" onclick="convertToFahrenheit()" />
+        <input type="button" value="Convert To Celcius" onclick="convertToCelcius()" />
+        <!--With onlick="" we attach our function and when we enter the name of the function and () parentheses that's
+       where it calls the function instead of calling inside JavaScript, it's calling it now within our HTML code -->
+
+    </div>
+
+    <!-- Script -->
+    <script>
+        // Fucntion has been created here with parentheses () which indicates it's a function
+        function convertToFahrenheit() {
+            // variable has been created with empty 0 value for getting the number on the input of form
+            var convertedNumber = 0;
+            //Then here we connect through DOM to our html page targer the id "tbInput" and its value
+            convertedNumber = document.getElementById("tbInput").value;
+            /*Then we again equal this variable to Math.round built in function and conduct math operation in order
+            to get the fahrenheit nubber n we make it inside of extra () to follow the order of operations */
+            convertedNumber = Math.round((convertedNumber * 9 / 5) + 32);
+            //New variable to store our display nessage wuth the variable convertedNumber + " F°" symbol of temperature
+            var displayMessage2 = (convertedNumber + " F°");
+            /*Another variable created here and then with the DOM manipulation we target p paragraph tag with id of 
+            "pTemperature" and that's where we display our result within that paragraph. */
+            var store = document.getElementById("pTemperature").innerHTML = displayMessage2;
+        }
+        //Here the scope of this function has been closed with "}" sign 
+
+
+
+        function convertToCelcius() {
+            var convertedNumber2 = 0;
+
+            convertedNumber2 = document.getElementById("tbInput").value;
+            convertedNumber2 = Math.round((convertedNumber2 - 32) * 5 / 9);
+
+
+            var displayMessage3 = (convertedNumber2 + " C°");
+            var storage = document.getElementById("pTemperature").innerHTML = displayMessage3;
+        }
+    </script>
+</body>
+
+</html>
